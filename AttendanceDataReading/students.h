@@ -3,6 +3,13 @@
 #include <QObject>
 #include <QTime>
 #include <QDate>
+#include <QVector>
+
+typedef struct{
+    QDateTime day;
+    bool signIN;
+}Events;
+
 
 class Students
 {
@@ -12,6 +19,7 @@ public:
     //int getStudentID() const;
 
     QString getStudentName() const;
+    QList<Events> eventLog;
 
 
 
@@ -20,7 +28,6 @@ public:
 
 private:
     QString name;
-    QVector<QDateTime> events;
 };
 
 #endif // STUDENT_H
