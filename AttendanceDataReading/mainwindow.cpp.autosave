@@ -19,11 +19,11 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+    {
 void MainWindow::sortList()
 {
     for(int i=0; i<studentList.size(); i++)
-    {
+
         for(int x=0; x<studentList.size(); x++)
         {
             if(studentList.at(x).getName().compare(studentList.at(x+1).getName()) < 0)
