@@ -17,8 +17,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
+<<<<<<< HEAD
     void sortList();
     void test();
+=======
+>>>>>>> origin/master
 };
 
 #endif // MAINWINDOW_H

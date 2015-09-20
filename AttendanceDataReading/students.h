@@ -6,8 +6,7 @@
 #include <QVector>
 
 typedef struct{
-    QDate day;
-    QTime time;
+    QDateTime day;
     bool signIN;
 }Events;
 
@@ -19,11 +18,8 @@ public:
     //METHODS GO BELOW (reference below)
     //int getStudentID() const;
 
-    void sortList();
-    int gotText();
-
-    QString getName() const;
-    QList<Events> eventLog; //using qlist not qvector!
+    QString getStudentName() const;
+    QList<Events> eventLog;
 
 
 

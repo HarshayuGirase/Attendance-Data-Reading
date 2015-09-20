@@ -1,12 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "students.h"
-#include <QTextStream>
-#include <qDebug>
-
-QList<Students> studentList;
-Students *student1 = new Students("Bob");
-Students *student2 = new Students("NIKIL");
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +13,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+<<<<<<< HEAD
 
 void MainWindow::sortList()
 {
@@ -54,3 +48,5 @@ void MainWindow::test()
 
 }
 
+=======
+>>>>>>> origin/master
