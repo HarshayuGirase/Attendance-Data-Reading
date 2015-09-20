@@ -20,7 +20,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::sortList()
 {
     for(int i=0; i<studentList.size(); i++)

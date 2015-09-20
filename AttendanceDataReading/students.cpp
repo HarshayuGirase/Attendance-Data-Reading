@@ -1,6 +1,6 @@
 #include "students.h"
 #include <QVector>
-
+#include <QDebug>
 
 
 Students::Students(QString name)
@@ -11,10 +11,8 @@ Students::Students(QString name)
     //this->eventLog.last().day =
 }
 
-QString Students::getStudentName() const
+QString Students::getName() const
 {
     return name;
 }
-
-
 
