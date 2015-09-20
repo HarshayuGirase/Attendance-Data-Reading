@@ -8,7 +8,7 @@
 typedef struct{
     QDateTime day;
     bool signIN;
-}Events;
+}Log;
 
 
 class Students
@@ -19,7 +19,7 @@ public:
     //int getStudentID() const;
 
     QString getStudentName() const;
-    QList<Events> eventLog;
+    QList<Log> eventLog;
 
 
 
