@@ -33,8 +33,24 @@ void MainWindow::sortList()
             }
             else
             {
-                qDebug() << "FECK";
+                qDebug() << "FaCK";
             }
         }
     }
 }
+
+void MainWindow::test()
+{
+    QString x = "BOB";
+    QString y = "FUCK";
+    if(x.compare(y) < 0)
+    {
+        qDebug() << "ag";
+    }
+    else
+    {
+        qDebug() << "FICK";
+    }
+
+}
+
