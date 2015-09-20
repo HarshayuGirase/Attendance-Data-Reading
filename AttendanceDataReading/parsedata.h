@@ -11,7 +11,7 @@ class ParseData
 {
 public:
     ParseData(QString file);
-    QFile getSortedFile();
+    QString getSortedFile();
 
 private:
     QFile *file;

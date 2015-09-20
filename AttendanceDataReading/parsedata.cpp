@@ -24,7 +24,7 @@ bool compareAlphabetically(singleLogLine* line1, singleLogLine* line2)  {
     }
 }
 
-QFile ParseData::getSortedFile()  {
+QString ParseData::getSortedFile()  {
     if (!this->file->open(QIODevice::ReadOnly | QIODevice::Text))    {
         qDebug() << "You are trying to sort an invalid file";
     }
@@ -117,6 +117,18 @@ QFile ParseData::getSortedFile()  {
 
 //        QDate date = QDate(year, month, day);
     }
+
     qSort(log.begin(), log.end(), compareAlphabetically);
-    qDebug() << "This shit good";
+
+    QFile newFile("sortedData.csv");
+    if (newFile.open(QFile::WriteOnly|QFile::Truncate))
+    {
+        QTextStream stream(&newFile);
+        for (int i = 0; i < log.size(); i++)    {
+            stream << log.at(i)->name << "," << log.at(i)->dateTime.toString("hh:mm:ss','MM'/'dd'/'yyyy") <<"," << log.at(i)->status << "\r\n"; // this writes first line with two columns
+        }
+        newFile.close();
+    }
+
+    return newFile.fileName();
 }
