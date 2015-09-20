@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ParseData *pd = new ParseData("./data.csv");
+    ParseData *pd = new ParseData("/Users/Nilay/Desktop/High School Stuff/Extracurriculars/Robotics/Attendance Coding/build-Attendance-Desktop_Qt_5_4_2_clang_64bit-Debug/Attendance.app/Contents/MacOS/data.csv");
     pd->getSortedFile();
     delete pd;
 }

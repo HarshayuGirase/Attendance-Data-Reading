@@ -2,9 +2,8 @@
 
 struct singleLogLine    {
     QString name;
-    QTime time;
+    QDateTime dateTime;
     bool status;
-    QDate date;
 } ;
 
 
@@ -27,8 +26,9 @@ QFile ParseData::getSortedFile()  {
 //    }
 
 
-    QVector <struct singleLogLine> log;
+    QVector <struct singleLogLine*> log;
 
+    singleLogLine *lineLog;
     while(!in.atEnd())  {
         QString line = in.readLine();
         QString nameString = line.section(',',0,0);
@@ -38,18 +38,24 @@ QFile ParseData::getSortedFile()  {
 
         QString dateHolder = dateString.section(' ',1);
 
-        QDateTime::fromString(dateHolder+ ' ' + timeString, "MMM' 'd' 'yyyy' 'hh:mm:ss");
+        QDateTime dateTime = QDateTime::fromString(dateHolder+ ' ' + timeString, "MMM' 'd' 'yyyy' 'hh:mm:ss");
 
 //        QTime time = QTime(timeString.section(':',0,0).toInt(), timeString.section(':',1,1).toInt() ,timeString.section(':',2).toInt());
 
 
-        bool status;
+        bool status = false;
         if (statusString == "Sign In")  {
             status = true;
         } else if (statusString == "Sign Out")    {
             status = false;
         }
 
+        lineLog = new singleLogLine;
+        lineLog->dateTime = dateTime;
+        lineLog->name = nameString;
+        lineLog->status = status;
+
+        log.append(lineLog);
 
 //        int month;
 
@@ -99,4 +105,5 @@ QFile ParseData::getSortedFile()  {
 
 //        QDate date = QDate(year, month, day);
     }
+    qDebug() << "This shit good";
 }
