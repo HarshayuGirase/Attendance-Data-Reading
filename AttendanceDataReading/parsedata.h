@@ -5,6 +5,7 @@
 #include <QTime>
 #include <QDateTime>
 #include <QDebug>
+#include <qalgorithms.h>
 
 class ParseData
 {

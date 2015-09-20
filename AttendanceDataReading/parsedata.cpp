@@ -12,6 +12,18 @@ ParseData::ParseData(QString file)
     this->file = new QFile(file);
 }
 
+bool compareAlphabetically(singleLogLine* line1, singleLogLine* line2)  {
+    if (line1->name != line2->name) {
+        return line1->name < line2->name;
+    } else if (line1->name == line2->name)  {
+         if (line1->dateTime != line2->dateTime)    {
+             return line1->dateTime < line2->dateTime;
+         } else if (line1->dateTime == line2->dateTime) {
+             return line1->status < line2->status;
+         }
+    }
+}
+
 QFile ParseData::getSortedFile()  {
     if (!this->file->open(QIODevice::ReadOnly | QIODevice::Text))    {
         qDebug() << "You are trying to sort an invalid file";
@@ -105,5 +117,6 @@ QFile ParseData::getSortedFile()  {
 
 //        QDate date = QDate(year, month, day);
     }
+    qSort(log.begin(), log.end(), compareAlphabetically);
     qDebug() << "This shit good";
 }
