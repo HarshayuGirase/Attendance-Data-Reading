@@ -36,7 +36,12 @@ QFile ParseData::getSortedFile()  {
         QString statusString = line.section(',',2,2);
         QString dateString = line.section(',',3);
 
-        QTime time = QTime(timeString.section(':',0,0).toInt(), timeString.section(':',1,1).toInt() ,timeString.section(':',2).toInt());
+        QString dateHolder = dateString.section(' ',1);
+
+        QDateTime::fromString(dateHolder+ ' ' + timeString, "MMM' 'd' 'yyyy' 'hh:mm:ss");
+
+//        QTime time = QTime(timeString.section(':',0,0).toInt(), timeString.section(':',1,1).toInt() ,timeString.section(':',2).toInt());
+
 
         bool status;
         if (statusString == "Sign In")  {
@@ -45,53 +50,53 @@ QFile ParseData::getSortedFile()  {
             status = false;
         }
 
-        QDate::fromString(dateString, )
 
-        int month;
-
-        switch (dateString.section(' ',2,2))    {
-        case "Jan":
-            month = 1;
-            break;
-        case "Feb":
-            month = 2;
-            break;
-        case "Mar":
-            month = 3;
-            break;
-        case "Apr":
-            month = 4;
-            break;
-        case "May":
-            month = 5;
-            break;
-        case "Jun":
-            month = 6;
-            break;
-        case "Jul":
-            month = 7;
-            break;
-        case "Aug":
-            month = 8;
-            break;
-        case "Sep":
-            month = 9;
-            break;
-        case "Oct":
-            month = 10;
-            break;
-        case "Nov":
-            month = 11;
-            break;
-        case "Dec":
-            month = 12;
-            break;
-        }
+//        int month;
 
 
-        int year = dateString.section(' ',3).toInt();\
-        int day = dateString.section(' ',1,1).toInt();
+//        switch (dateString.section(' ',2,2))    {
+//        case "Jan":
+//            month = 1;
+//            break;
+//        case "Feb":
+//            month = 2;
+//            break;
+//        case "Mar":
+//            month = 3;
+//            break;
+//        case "Apr":
+//            month = 4;
+//            break;
+//        case "May":
+//            month = 5;
+//            break;
+//        case "Jun":
+//            month = 6;
+//            break;
+//        case "Jul":
+//            month = 7;
+//            break;
+//        case "Aug":
+//            month = 8;
+//            break;
+//        case "Sep":
+//            month = 9;
+//            break;
+//        case "Oct":
+//            month = 10;
+//            break;
+//        case "Nov":
+//            month = 11;
+//            break;
+//        case "Dec":
+//            month = 12;
+//            break;
+//        }
 
-        QDate date = QDate(year, month, day);
+
+//        int year = dateString.section(' ',3).toInt();\
+//        int day = dateString.section(' ',1,1).toInt();
+
+//        QDate date = QDate(year, month, day);
     }
 }
