@@ -17,7 +17,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    void sortList();
 };
 
 #endif // MAINWINDOW_H
